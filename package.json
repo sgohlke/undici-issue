@@ -1,0 +1,62 @@
+{
+    "name": "@sgohlke/undici-issue",
+    "version": "1.2.0",
+    "description": "Unidici export issue",
+    "scripts": {
+        "build": "tsup-node",
+        "check": "tsc --noEmit --pretty",
+        "checkformat": "prettier --check .",
+        "format": "prettier --cache --write .",
+        "lint": "eslint src/*.ts tests/*.ts",
+        "lintfix": "eslint --fix src/*.ts tests/*.ts",
+        "prepack": "npm run build",
+        "test": "vitest run --coverage"
+    },
+    "type": "module",
+    "main": "build/index.cjs",
+    "module": "build/index.js",
+    "types": "build/index.d.ts",
+    "exports": {
+        ".": {
+            "types": "./build/index.d.ts",
+            "import": "./build/index.js",
+            "require": "./build/index.cjs",
+            "default": "./build/index.js"
+        },
+        "./package.json": "./package.json"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/sgohlke/undici-issue.git"
+    },
+    "keywords": [
+        "OpenTelemetry",
+        "JSON",
+        "logging",
+        "Logger"
+    ],
+    "author": "Stefan Gohlke",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/sgohlke/undici-issue/issues"
+    },
+    "homepage": "https://github.com/sgohlke/undici-issue#readme",
+    "devDependencies": {
+        "@types/node": "22.5.4",
+        "@vitest/coverage-v8": "2.0.5",
+        "eslint-plugin-deprecation": "3.0.0",
+        "eslint-plugin-import": "2.30.0",
+        "eslint-plugin-security": "3.0.1",
+        "eslint-plugin-unicorn": "55.0.0",
+        "prettier": "3.3.3",
+        "prettier-plugin-organize-imports": "4.0.0",
+        "tsup": "8.2.4",
+        "typescript": "5.5.4",
+        "typescript-eslint": "8.4.0",
+        "vite-tsconfig-paths": "5.0.1",
+        "vitest": "2.0.5"
+    },
+    "dependencies": {
+        "undici": "^6.19.8"
+    }
+}
